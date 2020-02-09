@@ -33,7 +33,7 @@ const Dashboard = props => {
   return (
     <Container>
       <Row>
-        <Col>Flowers</Col>
+        <Col></Col>
       </Row>
       {listOfFlowers}
     </Container>

@@ -23,12 +23,12 @@ class FlowersList extends Component {
           addFlowerToCart={this.props.addFlowerToCart}
         />
       ));
-    console.log(nameOfFlower);
+    // console.log(nameOfFlower);
     return (
       <div>
         <Input
           className='mb-3 mt-3'
-          placeholder='Filter for What You are Looking for Here ...'
+          placeholder='Please Make Your Selection ...'
           type='text'
           name='filterPhrase'
           onChange={this.handleChange}
