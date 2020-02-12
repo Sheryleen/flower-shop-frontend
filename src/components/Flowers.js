@@ -1,47 +1,47 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Button, Card } from "react-bootstrap";
 import {
-  Card,
   CardImg,
   CardText,
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
   Row,
   Col
 } from "reactstrap";
 import ReactStars from "react-stars";
 
+let flower = " "
+
 const Flowers = props => {
+  
   let { id, name, price, picture, rating, onSale } = props.flower;
   return (
-    <Card className='mb-3'>
-      <Row>
-        <Col xs={{ size: 3 }}>
-          <CardImg
-            style={{ width: 200 }}
-            top
-            src={picture}
-            alt='Card image cap'
-          />
-        </Col>
-        <Col>
-          <CardBody>
-            <CardTitle>{name}</CardTitle>
-            <CardText>${price.toFixed(2)}</CardText>
-            <p className='sale'>{onSale && "Sale"}</p>
-            <CardText>
-              <ReactStars edit={false} count={5} value={rating} />
-            </CardText>
-            {/* <ReactStars edit={false} count={5} value={rating}/> */}
-            <Button color='primary' onClick={() => props.addFlowerToCart(id)}>
-              Add To Cart
-            </Button>
-          </CardBody>
-        </Col>
-      </Row>
+    <Card style={{ width: "18rem" }}>
+      <Card.Img
+        variant='top'
+        src={flower.picture}
+      />
+      <Card.Body>
+        <Card.Title>Arrangements</Card.Title>
+        {/* <Card.Text>
+          
+        </Card.Text> */}
+        <Button variant='primary'>Add to Cart</Button>
+      </Card.Body>
     </Card>
   );
 };
 
-export default Flowers;
+//The first argument to a mapStateToProps function is the entire Redux store state
+// to add data to component props
+
+const mapStateToProps = (state /*, ownProps*/) => {
+  return {
+    flowers: state.flowers.all
+  };
+};
+
+export default connect(mapStateToProps)(Flowers);
+

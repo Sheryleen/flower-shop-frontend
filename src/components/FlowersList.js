@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Flowers from "./Flowers";
 import { Input } from "reactstrap";
+import { connect } from "react-redux";
 
 class FlowersList extends Component {
   state = {
-    filterPhrase: ""
-    // filterBy: "name"
+    //filterPhrase: ""
+    filterBy: "name"
   };
 
   handleChange = e => {
@@ -14,32 +15,51 @@ class FlowersList extends Component {
   };
 
   render() {
-    let nameOfFlower = this.props.flowersList
-      .filter(flower => flower.name.includes(this.state.filterPhrase))
-      .map(flower => (
-        <Flowers
-          key={flower.id}
-          flower={flower}
-          addFlowerToCart={this.props.addFlowerToCart}
-        />
-      ));
-    // console.log(nameOfFlower);
+    console.log("props", this.props);
+    const listOfFlowers =
+      this.props &&
+      this.props.flowers
+        .filter(flower => flower.name.includes(this.state.filterName))
+        .map(flower => {
+          return (
+            <Flowers
+            key={flower.id}
+            flower={flower}
+            // addFlowerToCart={this.props.addFlowerToCart}
+          /> 
+          )
+        }
+         
+        );
+
     return (
       <div>
-        <Input
+        {/* <Input
           className='mb-3 mt-3'
           placeholder='Please Make Your Selection ...'
           type='text'
           name='filterPhrase'
           onChange={this.handleChange}
         />
-        {/* <select name='filterBy' onChange={this.handleChange}>
-          <option value='name'>Name</option>
-        </select> */}
-        {nameOfFlower}
+        {
+          <select name='filterBy' onChange={this.handleChange}>
+            <option value='name'>Name</option>
+          </select>
+        } */}
+        {listOfFlowers}
       </div>
     );
   }
 }
 
-export default FlowersList;
+//1. setup mapStateToProps (for flowers)
+//2. setup connect
+//The first argument to a mapStateToProps function is the entire Redux store state
+// to add data to component props
+
+const mapStateToProps = state => {
+  return {
+    flowers: state.flowers.all
+  };
+};
+export default connect(mapStateToProps)(FlowersList);

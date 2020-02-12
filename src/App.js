@@ -10,6 +10,8 @@ import Cart from "./components/Cart";
 import { fetchAllFlowers } from "./store/flowers/actions";
 import axios from "axios";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 //useEffect requires 2 arguments
 //1st argument should be a/k/a componentDidMount

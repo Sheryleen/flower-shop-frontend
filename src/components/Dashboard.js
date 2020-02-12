@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Button, Card } from "react-bootstrap";
+import FlowersList from "./FlowersList";
 import {
-  Card,
-  Button,
   CardTitle,
+  CardImg,
   CardText,
   Row,
   Col,
@@ -16,16 +17,11 @@ const Dashboard = props => {
   let listOfFlowers = props.flowers.map(flower => (
     <Row>
       <Col sm='3'>
-        <Card body>
-          <CardTitle>{flower.name}</CardTitle>
-          <Button
-            onClick={() =>
-              props.history.push(`/flower/${flower.id}/flowers`)
-            }
-          >
-            View Flowers
-          </Button>
-        </Card>
+        <container>
+          <FlowersList />
+          
+          
+        </container>
       </Col>
     </Row>
   ));

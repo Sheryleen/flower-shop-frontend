@@ -18,4 +18,4 @@ export const UPDATE_FLOWER_PENDING = "UPDATE_FLOWER_PENDING";
 export const UPDATE_FLOWER_SUCCESS = "UPDATE_FLOWER_SUCCESS";
 export const UPDATE_FLOWER_FAILED = "UPDATE_FLOWER_FAILED";
 
-export const BASE_URL = "http://localhost:5432/flowers";
+export const BASE_URL = "http://localhost:8080/flowers";
