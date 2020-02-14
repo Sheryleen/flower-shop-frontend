@@ -1,36 +1,39 @@
 import React, { Component } from "react";
 import Flowers from "./Flowers";
-import { Input } from "reactstrap";
 import { connect } from "react-redux";
 
 class FlowersList extends Component {
-  state = {
-    //filterPhrase: ""
-    filterBy: "name"
-  };
+  // state = {
+  //   //filterPhrase: ""
+  //   filterBy: "name"
+  // };
 
-  handleChange = e => {
-    let { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+// may need this in the cart for totalling price
+  // handleChange = e => {
+  //   let { name, value } = e.target;
+  //   this.setState({ [name]: value });
+  // };
 
   render() {
-    console.log("props", this.props);
+
     const listOfFlowers =
-      this.props &&
+      // this.props &&
       this.props.flowers
-        .filter(flower => flower.name.includes(this.state.filterName))
+        // .filter(flower => flower.name.includes(this.state.filterName))
+
+        //receives array to display the same on every card
         .map(flower => {
           return (
             <Flowers
             key={flower.id}
             flower={flower}
-            // addFlowerToCart={this.props.addFlowerToCart}
+            //  addFlowerToCart={this.props.addFlowerToCart}
           /> 
           )
         }
          
-        );
+      );
+    console.log("testListOfFlowers", listOfFlowers)
 
     return (
       <div>

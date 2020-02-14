@@ -24,10 +24,10 @@ const Flowers = props => {
         src={flower.picture}
       />
       <Card.Body>
-        <Card.Title>Arrangements</Card.Title>
-        {/* <Card.Text>
-          
-        </Card.Text> */}
+        {/* <Card.Title>Arrangements</Card.Title> */}
+        <Card.Text>
+        {name, price, picture, rating, onSale}
+        </Card.Text>
         <Button variant='primary'>Add to Cart</Button>
       </Card.Body>
     </Card>
