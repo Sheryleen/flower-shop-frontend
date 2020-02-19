@@ -12,22 +12,16 @@ import {
 } from "reactstrap";
 import ReactStars from "react-stars";
 
-let flower = " "
+let flower = " ";
 
-const Flowers = props => {
-  
-  let { id, name, price, picture, rating, onSale } = props.flower;
+const Flower = props => {
+  let { name, price, picture, rating, onSale } = props.flower;
   return (
     <Card style={{ width: "18rem" }}>
-      <Card.Img
-        variant='top'
-        src={flower.picture}
-      />
+      <Card.Img variant='top' src={flower.picture} />
       <Card.Body>
         {/* <Card.Title>Arrangements</Card.Title> */}
-        <Card.Text>
-        {name, price, picture, rating, onSale}
-        </Card.Text>
+        <Card.Text>{(name, price, picture, rating, onSale)}</Card.Text>
         <Button variant='primary'>Add to Cart</Button>
       </Card.Body>
     </Card>
@@ -37,11 +31,4 @@ const Flowers = props => {
 //The first argument to a mapStateToProps function is the entire Redux store state
 // to add data to component props
 
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    flowers: state.flowers.all
-  };
-};
-
-export default connect(mapStateToProps)(Flowers);
-
+export default connect()(Flower);
