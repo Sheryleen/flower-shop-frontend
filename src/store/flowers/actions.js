@@ -11,6 +11,7 @@ export const fetchAllFlowers = () => async dispatch => {
 
   try {
     let response = await axios.get(BASE_URL);
+    // console.log("RESPONSE: ", response.data);
     dispatch({
       type: types.FETCH_ALL_FLOWERS_SUCCESS,
       payload: response.data

@@ -7,31 +7,17 @@ import { CardTitle, CardImg, CardText, Row, Col, Container } from "reactstrap";
 const Main = props => {
   //   // console.log("props", props);
 
-  let listOfFlowers = props.flowers.map(flower => (
-    <Row>
-      <Col md='6'>
-        <container>
-          <FlowersList />
-        </container>
-      </Col>
-    </Row>
-  ));
 
   return (
     <Container>
       <Row>
         <Col></Col>
       </Row>
-      {listOfFlowers}
+      <FlowersList/>
     </Container>
   );
 };
 
-// // function should return a plain object that contains the data the component needs:
-const mapStateToProps = (state /*, ownProps*/) => {
-  return {
-    flowers: state.flowers.all
-  };
-};
 
-export default connect(mapStateToProps)(Main);
+
+export default Main;

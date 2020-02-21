@@ -1,40 +1,34 @@
 import React, { Component } from "react";
 import Flower from "./Flower";
 import { connect } from "react-redux";
+import { Button, Card, CardTitle, Row, Col, CardImg } from "reactstrap";
 
-class FlowersList extends Component {
-  
-  render() {
-    const listOfFlowers =
-      this.props.flower
+const FlowersList = props => {
+  // console.log("FLOWERS: ", props.listOFFlowers);
 
-        //receives array to display the same on every card
-        .map(flower => {
-          return (
-            <Flower
-              key={flower.id}
-              flower={flower}
-            />
-          );
-        });
-    console.log("testListOfFlowers", listOfFlowers);
+  let listOfFlowers = props.flowers.map(flower => (
+    <Row>
+      <Col sm='6'>
+        <Card body>
+          <CardImg variant='top' src={flower.picture} />
+          <CardTitle>
+            {flower.name} ${flower.price}
+          </CardTitle>
+          <Button onClick={() => props.history.push(`/flowers/${flower.id}`)}>
+            Add to Cart
+          </Button>
+        </Card>
+      </Col>
+    </Row>
+  ));
 
-    return (
-      <div>
-        {listOfFlowers}
-      </div>
-    );
-  }
-}
+  // console.log("FLOWERS-LIST: ", listOfFlowers);
 
-//1. setup mapStateToProps (for flowers)
-//2. setup connect
-//The first argument to a mapStateToProps function is the entire Redux store state
-// to add data to component props
-
-const mapStateToProps = state => {
+  return <div>{listOfFlowers}</div>;
+};
+function mapStateToProps(state, props) {
   return {
     flowers: state.flowers.all
   };
-};
+}
 export default connect(mapStateToProps)(FlowersList);

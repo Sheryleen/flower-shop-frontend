@@ -1,13 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
+import ListGroup from "reactstrap/es/ListGroup";
+import ListGroupItem from "reactstrap/es/ListGroupItem";
+import { NavLink } from "react-router-dom";
 
-class Login extends Component {
-    render() {
+const Login = () => {
+  const loggedIn = localStorage.getItem("loggedInUser");
+  const loggedInUser = JSON.parse(loggedIn);
+  return (
+    <ListGroup>
+      <NavLink to='/main'>
+        <ListGroupItem>Home</ListGroupItem>
+      </NavLink>
+      <NavLink to={`/profile/${loggedInUser.id}`}>
+        <ListGroupItem>Owner</ListGroupItem>
+      </NavLink>
       
-      return (
-       <div>Login</div>    
-      );
-     
-  }
-}
+    </ListGroup>
+  );
+};
 
 export default Login;
