@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import util from "../util";
+
 export default class Basket extends Component {
   render() {
     const { cartItems } = this.props;
@@ -42,7 +43,7 @@ export default class Basket extends Component {
               onClick={() => alert("Todo: Implement checkout page.")}
               className='btn btn-primary'
             >
-              checkout
+              Checkout
             </button>
           </div>
         )}

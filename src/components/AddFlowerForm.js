@@ -10,7 +10,6 @@ const AddFlowerForm = props => {
   const [in_cart, setIn_Cart] = useState("");
   const [name, setName] = useState("");
   const [on_sale, setOn_Sale] = useState("");
-  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [rating, setRating] = useState("");
 
@@ -21,7 +20,6 @@ const AddFlowerForm = props => {
       in_cart,
       name,
       on_sale,
-      description,
       price,
       rating
     });
@@ -55,15 +53,6 @@ const AddFlowerForm = props => {
         />
       </FormGroup>
       <FormGroup>
-        <Label>Description</Label>
-        <Input
-          type='text'
-          name='description'
-          onChange={e => setDescription(e.target.value)}
-          value={description}
-        />
-      </FormGroup>
-      <FormGroup>
         <Label>Price</Label>
         <Input
           type='text'
@@ -78,7 +67,7 @@ const AddFlowerForm = props => {
   );
 };
 
-const mapStateToProps = (state /*, ownProps*/) => {
+const mapStateToProps = state => {
   return {
     flowers: state.products.all
   };

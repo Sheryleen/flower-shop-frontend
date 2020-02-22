@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button, Card } from "react-bootstrap";
 import FlowersList from "./FlowersList";
-import { CardTitle, CardImg, CardText, Row, Col, Container } from "reactstrap";
+import { Row, Col, Container } from "reactstrap";
+import { Basket } from "../components/Basket";
 
 const Main = props => {
-  //   // console.log("props", props);
+ 
 
 
   return (
@@ -13,11 +13,18 @@ const Main = props => {
       <Row>
         <Col></Col>
       </Row>
-      <FlowersList/>
+      <FlowersList />
+   
+  
+      <Row>
+        <Col sm='3'>
+          className="col-md-4">
+          </Col>
+        <Basket cartItems={this.state.cartItems} handleRemoveFromCart={this.handleRemoveFromCart} />
+      </Row>
     </Container>
+   
   );
-};
+}
 
-
-
-export default Main;
+  export default Main;

@@ -1,28 +1,31 @@
 import React, { Component } from "react";
-import Flower from "./Flower";
+import CartItem from "./CartItem";
 import { connect } from "react-redux";
 import { Button, Card, CardTitle, Row, Col, CardImg } from "reactstrap";
+import { withRouter } from "react-router-dom"; //gives access to router props (history,match and location)
+import { addToCart } from "../store/flowers/actions";
 
 const FlowersList = props => {
-  // console.log("FLOWERS: ", props.listOFFlowers);
+  console.log("PROP: ", props);
 
   let listOfFlowers = props.flowers.map(flower => (
     <Row>
-      <Col sm='6'>
+      <Col sm='3'>
         <Card body>
           <CardImg variant='top' src={flower.picture} />
           <CardTitle>
             {flower.name} ${flower.price}
           </CardTitle>
-          <Button onClick={() => props.history.push(`/flowers/${flower.id}`)}>
+          <Button
+            color='primary'
+            onClick={()=>props.addToCart(flower.id)}
+          >
             Add to Cart
           </Button>
         </Card>
       </Col>
     </Row>
   ));
-
-  // console.log("FLOWERS-LIST: ", listOfFlowers);
 
   return <div>{listOfFlowers}</div>;
 };
@@ -31,4 +34,4 @@ function mapStateToProps(state, props) {
     flowers: state.flowers.all
   };
 }
-export default connect(mapStateToProps)(FlowersList);
+export default connect(mapStateToProps, { addToCart })(withRouter(FlowersList));

@@ -49,6 +49,20 @@ export default (state = initialState, action) => {
         })
       };
 
+    //searching through array of flowers to see which flower matches the condition
+    //received action from actionCreator through dispatch
+    //to find id and make change
+    case types.ADD_TO_CART:
+      return {
+        ...state,
+        all: state.all.map(flower => {
+          if (flower.id === action.payload) {
+            flower.in_cart = true;
+          }
+          return flower;
+        })
+      };
+
     default:
       return state;
   }
