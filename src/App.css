@@ -23,3 +23,8 @@
 .Row {
   display: flex;
 }
+
+.flower-cart{
+  float: right;
+  width: 48%
+}

@@ -1,30 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import FlowersList from "./FlowersList";
+import FlowersList from "../components/FlowersList";
 import { Row, Col, Container } from "reactstrap";
-import { Basket } from "../components/Basket";
+import FlowerCart from "../components/FlowerCart";
 
 const Main = props => {
- 
-
-
   return (
-    <Container>
-      <Row>
-        <Col></Col>
-      </Row>
+    <Container style={{ display: "flex" }}>
       <FlowersList />
-   
-  
-      <Row>
-        <Col sm='3'>
-          className="col-md-4">
-          </Col>
-        <Basket cartItems={this.state.cartItems} handleRemoveFromCart={this.handleRemoveFromCart} />
-      </Row>
+      <FlowerCart />
     </Container>
-   
   );
-}
+};
 
-  export default Main;
+export default Main;

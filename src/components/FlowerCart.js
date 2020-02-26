@@ -1,4 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
+import { withRouter, Link } from "react-router-dom";
+//gives access to router props (history,match and location)
 import CartItem from "./CartItem";
 import {
   Container,
@@ -12,8 +15,8 @@ import {
   CardSubtitle
 } from "reactstrap";
 
-const Cart = props => {
-  let arrOfCartItems = props.cart.filter(item => item.inCart);
+const FlowerCart = props => {
+  let arrOfCartItems = props.flowers.filter(item => item.in_cart);
   let cartItemComponents = arrOfCartItems.map(item => (
     <CartItem
       key={item.id}
@@ -21,6 +24,8 @@ const Cart = props => {
       removeFlowerFromCart={props.removeFlowerFromCart}
     />
   ));
+  //reduces the array to a single value
+  //return value is stored in an accumulator
 
   let totalPrice = arrOfCartItems.reduce(
     (acc, cartItem) => (acc += cartItem.price),
@@ -34,7 +39,7 @@ const Cart = props => {
     <div>
       <Container>
         <Row>
-          <Col className='cart mt-3'>
+          <Col className='cart md-3'>
             <Card>
               <CardBody>
                 <CardTitle>Your Cart</CardTitle>
@@ -42,9 +47,11 @@ const Cart = props => {
                 <CardSubtitle>Subtotal: ${totalPrice.toFixed(2)}</CardSubtitle>
                 <CardText>Tax: ${taxTotal.toFixed(2)}</CardText>
                 <CardText>Total: ${grandTotal.toFixed(2)}</CardText>
-                <Button color='primary' size='lg' block>
-                  Checkout
-                </Button>
+                <Link to='/checkout'>
+                  <Button color='danger' size='lg'>
+                    Checkout
+                  </Button>
+                </Link>
               </CardBody>
             </Card>
           </Col>
@@ -54,4 +61,23 @@ const Cart = props => {
   );
 };
 
-export default Cart;
+function mapStateToProps(state) {
+  return {
+    flowers: state.flowers.all
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    removeFromCart: item => {
+      dispatch({
+        type: "REMOVE_FROM_CART",
+        item
+      });
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(FlowerCart));

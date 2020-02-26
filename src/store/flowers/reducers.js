@@ -2,6 +2,7 @@ import * as types from "./constants";
 
 const initialState = {
   all: [],
+  cartId: 0,
   err: {}
 };
 
@@ -26,9 +27,10 @@ export default (state = initialState, action) => {
       };
 
     case types.ADD_FLOWER_SUCCESS:
+      console.log("action.payload", action.payload)
       return {
         ...state,
-        all: [...state.all, action.payload[0]]
+        cartId: action.payload
       };
     case types.REMOVE_FLOWER_SUCCESS:
       console.log("action", action);
@@ -52,6 +54,8 @@ export default (state = initialState, action) => {
     //searching through array of flowers to see which flower matches the condition
     //received action from actionCreator through dispatch
     //to find id and make change
+    //returning object copy structure 
+    //recreate the state as before and create the state with updated data
     case types.ADD_TO_CART:
       return {
         ...state,

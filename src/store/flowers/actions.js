@@ -46,8 +46,9 @@ export const addToCart = id => dispatch => {
   dispatch({
     type: types.ADD_TO_CART,
     payload: id
-  })
-}
+  });
+};
+
 export const addFlower = newFlower => async dispatch => {
   dispatch({
     type: types.ADD_FLOWER_PENDING
