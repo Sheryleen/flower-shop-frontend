@@ -1,47 +1,35 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { connect } from "react-redux";
 import { addFlower } from "../store/flowers/actions";
 
 // You can access props using the props parameter
 const AddFlowerForm = props => {
-  //creating state for products
+  //creating state for flowers
   const [flower_id, setFlower] = useState("1");
   const [in_cart, setIn_Cart] = useState("");
   const [name, setName] = useState("");
   const [on_sale, setOn_Sale] = useState("");
   const [price, setPrice] = useState("");
   const [rating, setRating] = useState("");
+  const [picture, setPicture] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     props.addFlower({
-      flower_id,
       in_cart,
       name,
+      picture,
       on_sale,
       price,
       rating
-    });
+    },props.history.push);
   }
-
-  let listOfFlowers = props.flowers.map(flower => (
-    <option value={flower.id}>{flower.name}</option>
-  ));
 
   return (
     <Form onSubmit={handleSubmit}>
-      <FormGroup>
-        <Label for='flower'>Flower</Label>
-        <Input
-          type='select'
-          name='flower'
-          onChange={e => setFlower(e.target.value)}
-          value={flower_id}
-        >
-          {listOfFlowers}
-        </Input>
-      </FormGroup>
+      {/**when form is submitted a submit event is fired, listing for submit event, on submit intercepts, then handle submit fires */}
+
       <FormGroup>
         <Label for='name'>Name</Label>
         <Input
@@ -62,14 +50,44 @@ const AddFlowerForm = props => {
           value={price}
         />
       </FormGroup>
-      <Button>Submit</Button>
+      <FormGroup>
+        <Label for='picture'>Picture</Label>
+        <Input
+          type='text'
+          name='picture'
+          id='picture'
+          onChange={e => setPicture(e.target.value)}
+          value={picture}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label for='on_sale'>On Sale</Label>
+        <Input
+          type='text'
+          name='on_sale'
+          id='on_sale'
+          onChange={e => setOn_Sale(e.target.value)}
+          value={on_sale}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label for='rating'>Rating</Label>
+        <Input
+          type='text'
+          name='rating'
+          id='rating'
+          onChange={e => setRating(e.target.value)}
+          value={rating}
+        />
+      </FormGroup>
+      <Button type='submit'>Submit</Button>
     </Form>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    flowers: state.products.all
+    flowers: state.flowers.all
   };
 };
 

@@ -49,7 +49,7 @@ export const addToCart = id => dispatch => {
   });
 };
 
-export const addFlower = newFlower => async dispatch => {
+export const addFlower = (newFlower,push) => async dispatch => {
   dispatch({
     type: types.ADD_FLOWER_PENDING
   });
@@ -59,6 +59,8 @@ export const addFlower = newFlower => async dispatch => {
       type: types.ADD_FLOWER_SUCCESS,
       payload: response.data
     });
+  // this is where the redirect should be entered
+    push('/')
   } catch (err) {
     dispatch({
       type: types.ADD_FLOWER_FAILED,

@@ -39,7 +39,7 @@ const FlowerCart = props => {
     <div>
       <Container>
         <Row>
-          <Col className='cart md-3'>
+          <Col className='cart md-6'>
             <Card>
               <CardBody>
                 <CardTitle>Your Cart</CardTitle>

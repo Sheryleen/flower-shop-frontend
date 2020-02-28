@@ -8,60 +8,56 @@ class Checkout extends React.Component {
         <Navbar.Brand href='#home'>Checkout</Navbar.Brand>
         <Nav className='mr-auto'></Nav>
 
-        <Navbar>Please Enter Shipping</Navbar>
+        <Navbar>Please Enter Shipping Address</Navbar>
         <Form inline>
-          <FormControl type='text' placeholder='Name' className='mr-sm-2' />
+          <FormControl type='text' placeholder='name' className='mr-sm-6' />
           <FormControl
             type='text'
-            placeholder='Address'
-            classAddress='mr-sm-2'
+            placeholder='address'
+            classAddress='mr-sm-6'
           />
-          <FormControl type='text' placeholder='City' classCity='mr-sm-2' />
-          <FormControl type='text' placeholder='State' classState='mr-sm-2' />
+          <FormControl type='text' placeholder='city' classCity='mr-sm-4' />
+          <FormControl type='text' placeholder='state' classState='mr-sm-2' />
           <FormControl
             type='text'
-            placeholder='Zip Code'
-            classZip_Code='mr-sm-2'
+            placeholder='zip code'
+            classZip_Code='mr-sm-5'
           />
         </Form>
 
         <Navbar>Please Enter Billing Address</Navbar>
         <Form inline>
-          <FormControl type='text' placeholder='Name' className='mr-sm-2' />
+          <FormControl type='text' placeholder='name' className='mr-sm-2' />
           <FormControl
             type='text'
-            placeholder='Address'
+            placeholder='address'
             classAddress='mr-sm-2'
           />
-          <FormControl type='text' placeholder='City' classCity='mr-sm-2' />
-          <FormControl type='text' placeholder='State' classState='mr-sm-2' />
+          <FormControl type='text' placeholder='city' classCity='mr-sm-2' />
+          <FormControl type='text' placeholder='state' classState='mr-sm-2' />
           <FormControl
             type='text'
-            placeholder='Zip Code'
+            placeholder='zip code'
             classZip_Code='mr-sm-2'
           />
         </Form>
 
         <Form inline>
           <Navbar>Please Enter Credit Card</Navbar>
+          <FormControl type='text' placeholder='name' className='mr-sm-2' />
           <FormControl
             type='text'
-            placeholder='Name on Card'
-            className='mr-sm-2'
-          />
-          <FormControl
-            type='text'
-            placeholder='Card_Number'
+            placeholder='card number'
             classCard_Number='mr-sm-2'
           />
           <FormControl
             type='text'
-            placeholder='Exp_Date'
+            placeholder='exp date'
             classExp_Date='mr-sm-2'
           />
-          <FormControl type='text' placeholder='CSC' classCSC='mr-sm-2' />
-          <Button variant='outline-info'>Submit Order</Button>
+          <FormControl type='text' placeholder='csc' classCSC='mr-sm-2' />
         </Form>
+        <Button variant='outline-info'>Submit Order</Button>
       </Navbar>
     );
   }
