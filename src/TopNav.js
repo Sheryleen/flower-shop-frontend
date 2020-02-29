@@ -36,7 +36,7 @@ class TopNav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
               <NavItem>
-                <NavLink href='/components/'>Admin</NavLink>
+                <NavLink href='/admin'>Admin</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href='https://github.com/reactstrap/reactstrap'>

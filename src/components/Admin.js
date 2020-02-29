@@ -1,34 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button, Card, CardTitle, Row, Col, CardImg } from "reactstrap";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 //gives access to router props (history,match and location)
-import { addToCart } from "../store/flowers/actions";
+import { addFlower } from "../store/flowers/actions";
 import { removeFlower } from "../store/flowers/actions";
+import { updateFlower } from "../store/flowers/actions";
 
-const FlowersList = props => {
+
+const Admin = props => {
   console.log("PROP: ", props);
 
   let listOfFlowers = props.flowers.map(flower => (
     <Row>
-      <Col sm='6'>
+      <Col sm='3'>
         <Card body>
           <CardImg variant='top' src={flower.picture} />
+          
           <CardTitle>
             {flower.name} ${flower.price}
           </CardTitle>
-          <Button color='primary' onClick={() => props.addToCart(flower.id)}>
-            Add to Cart
-          </Button>
-          {/* <Link to={`/admin/edit/${flower.id}`}>
-            <Button color='primary'>
+          <Link to={`/admin/edit/${flower.id}`}>
+            <Button color='warning' size='sm'>
               Edit
             </Button>
           </Link>
-          <Button color='primary' onClick={() => props.removeFlower(flower.id)}>
-            Delete
-          </Button> */}
           
+          <Button
+            color='danger'
+            size='sm'
+            onClick={() => props.removeFlower(flower.id)}
+          >
+            Delete
+          </Button>
+
         </Card>
       </Col>
     </Row>
@@ -41,4 +46,6 @@ function mapStateToProps(state, props) {
     flowers: state.flowers.all
   };
 }
-export default connect(mapStateToProps, { addToCart, removeFlower })(withRouter(FlowersList));
+export default connect(mapStateToProps, { updateFlower, removeFlower })(
+  withRouter(Admin)
+);

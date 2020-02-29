@@ -49,7 +49,7 @@ export const addToCart = id => dispatch => {
   });
 };
 
-export const addFlower = (newFlower,push) => async dispatch => {
+export const addFlower = (newFlower, push) => async dispatch => {
   dispatch({
     type: types.ADD_FLOWER_PENDING
   });
@@ -59,8 +59,8 @@ export const addFlower = (newFlower,push) => async dispatch => {
       type: types.ADD_FLOWER_SUCCESS,
       payload: response.data
     });
-  // this is where the redirect should be entered
-    push('/')
+    // this is where the redirect should be entered
+    push("/");
   } catch (err) {
     dispatch({
       type: types.ADD_FLOWER_FAILED,
@@ -74,10 +74,11 @@ export const removeFlower = (id, history) => async dispatch => {
     type: types.REMOVE_FLOWER_PENDING
   });
   try {
-    let response = await axios.delete(BASE_URL + `/${id}`);
+    let response = await axios.delete(BASE_URL + `/${id}`, id);
+    console.log("DEL RES: ", response.data);
     dispatch({
       type: types.REMOVE_FLOWER_SUCCESS,
-      payload: response.data
+      payload: id
     });
     // history.push("/");
   } catch (err) {
@@ -88,19 +89,18 @@ export const removeFlower = (id, history) => async dispatch => {
   }
 };
 export const updateFlower = (updatedFlower, history) => async dispatch => {
+  console.log("updated flower", updatedFlower);
   dispatch({
     type: types.UPDATE_FLOWER_PENDING
   });
   try {
-    let response = await axios.patch(
-      BASE_URL + `/${updatedFlower.id}`,
-      updatedFlower
-    );
+    let response = await axios.patch(BASE_URL, updatedFlower);
+    console.log("RES: ", response.data);
     dispatch({
       type: types.UPDATE_FLOWER_SUCCESS,
       payload: response.data
     });
-    history.push("/");
+    // history.push("/");
   } catch (err) {
     dispatch({
       type: types.UPDATE_FLOWER_FAILED,

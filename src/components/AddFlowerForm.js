@@ -80,7 +80,7 @@ const AddFlowerForm = props => {
           value={rating}
         />
       </FormGroup>
-      <Button type='submit'>Submit</Button>
+      <Button color="primary" type='submit'>Submit</Button>
     </Form>
   );
 };

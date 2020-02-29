@@ -29,21 +29,22 @@ export default (state = initialState, action) => {
       console.log("action.payload", action.payload);
       return {
         ...state,
-        all: [...state.all,action.payload]
+        all: [...state.all, action.payload]
       };
     case types.REMOVE_FLOWER_SUCCESS:
       console.log("action", action);
       return {
         ...state,
         //take array from payload give all then the deleted one
-        all: state.all.filter(FLOWER => FLOWER.id !== action.payload[0].id)
+        all: state.all.filter(flower => flower.id !== action.payload)
       };
     case types.UPDATE_FLOWER_SUCCESS: //once changed look for one came back and change to the one that came back
       return {
         ...state,
         all: state.all.map(flower => {
-          if (flower.id === action.payload[0].id) {
-            return action.payload[0];
+          if (flower.id === action.payload.id) {
+            console.log("action.payload", action.payload);
+            return action.payload;
           } else {
             return flower;
           }

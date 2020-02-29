@@ -9,7 +9,7 @@ import "./App.css";
 import Checkout from "./components/Checkout";
 import AddFlowerForm from "./components/AddFlowerForm";
 import EditFlowerForm from "./components/EditFlowerForm";
-import Dashboard from "./components/Dashboard";
+import Admin from "./components/Admin";
 import Login from "./components/Login";
 
 //useEffect requires 2 arguments
@@ -36,7 +36,7 @@ function App(props) {
                 <Route path='/checkout' component={Checkout} />
                 <Route path='/admin/add' component={AddFlowerForm} />
                 <Route path='/admin/edit/:id' component={EditFlowerForm} />
-                <Route path='/dashboard' component={Dashboard} />
+                <Route path='/admin' component={Admin} />
                 <Route path='/login' component={Login} />
               </Switch>
             </Col>

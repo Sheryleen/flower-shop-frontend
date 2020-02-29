@@ -1,13 +1,102 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { connect } from "react-redux";
+import { updateFlower } from "../store/flowers/actions";
+import { Link } from "react-router-dom";
 
-class EditFlowerForm extends Component {
-  render() {
-        return (
-          
-            <div>EditFlowerForm</div>
-        
-        );
-    }
-}  
+// You can access props using the props parameter
+const EditFlowerForm = props => {
+  //creating state for flowers
 
-export default EditFlowerForm;
+  const [flower_id, setFlower] = useState("1");
+  const [in_cart, setIn_Cart] = useState("");
+  const [name, setName] = useState("");
+  const [on_sale, setOn_Sale] = useState("");
+  const [price, setPrice] = useState("");
+  const [rating, setRating] = useState("");
+  const [picture, setPicture] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.updateFlower({
+      id: props.match.params.id,
+      in_cart,
+      name,
+      picture,
+      on_sale,
+      price,
+      rating
+    });
+    props.history.push("/admin");
+  }
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      {/**when form is submitted a submit event is fired, listening for submit event, on submit intercepts, then handle submit fires */}
+
+      <FormGroup>
+        <Label for='name'>Name</Label>
+        <Input
+          type='text'
+          name='name'
+          id='name'
+          onChange={e => setName(e.target.value)}
+          value={name}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label>Price</Label>
+        <Input
+          type='text'
+          name='price'
+          id='price'
+          onChange={e => setPrice(e.target.value)}
+          value={price}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label for='picture'>Picture</Label>
+        <Input
+          type='text'
+          name='picture'
+          id='picture'
+          onChange={e => setPicture(e.target.value)}
+          value={picture}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label for='on_sale'>On Sale</Label>
+        <Input
+          type='text'
+          name='on_sale'
+          id='on_sale'
+          onChange={e => setOn_Sale(e.target.value)}
+          value={on_sale}
+        />
+      </FormGroup>
+      <FormGroup>
+        <Label for='rating'>Rating</Label>
+        <Input
+          type='text'
+          name='rating'
+          id='rating'
+          onChange={e => setRating(e.target.value)}
+          value={rating}
+        />
+      </FormGroup>
+      {/* <Link to="/admin"> */}
+      <Button color='primary' type='submit'>
+        Submit
+      </Button>
+      {/* </Link> */}
+    </Form>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    flowers: state.flowers.all
+  };
+};
+
+export default connect(mapStateToProps, { updateFlower })(EditFlowerForm);
