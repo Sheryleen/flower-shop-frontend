@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button, Card, CardTitle, Row, Col, CardImg } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardTitle,
+  Row,
+  Col,
+  CardImg,
+  ButtonGroup
+} from "reactstrap";
 import { withRouter, Link } from "react-router-dom";
 //gives access to router props (history,match and location)
 import { addFlower } from "../store/flowers/actions";
 import { removeFlower } from "../store/flowers/actions";
 import { updateFlower } from "../store/flowers/actions";
-
 
 const Admin = props => {
   console.log("PROP: ", props);
@@ -16,7 +23,7 @@ const Admin = props => {
       <Col sm='3'>
         <Card body>
           <CardImg variant='top' src={flower.picture} />
-          
+
           <CardTitle>
             {flower.name} ${flower.price}
           </CardTitle>
@@ -25,7 +32,7 @@ const Admin = props => {
               Edit
             </Button>
           </Link>
-          
+
           <Button
             color='danger'
             size='sm'
@@ -33,9 +40,13 @@ const Admin = props => {
           >
             Delete
           </Button>
-
         </Card>
       </Col>
+      <Link to={`/admin/add/`}>
+        <ButtonGroup size='md' className='mt-3'>
+          <Button color='secondary'>Add Flowers</Button>
+        </ButtonGroup>
+      </Link>
     </Row>
   ));
 

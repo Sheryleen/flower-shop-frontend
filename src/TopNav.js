@@ -39,9 +39,6 @@ class TopNav extends React.Component {
                 <NavLink href='/admin'>Admin</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href='https://github.com/reactstrap/reactstrap'>
-                  GitHub
-                </NavLink>
               </NavItem>
             </Nav>
           </Collapse>

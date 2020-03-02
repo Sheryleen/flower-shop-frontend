@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 //gives access to router props (history,match and location)
 import { addToCart } from "../store/flowers/actions";
 import { removeFlower } from "../store/flowers/actions";
+import { Link } from "react-router-dom";
 
 const FlowersList = props => {
   console.log("PROP: ", props);
@@ -20,15 +21,6 @@ const FlowersList = props => {
           <Button color='primary' onClick={() => props.addToCart(flower.id)}>
             Add to Cart
           </Button>
-          {/* <Link to={`/admin/edit/${flower.id}`}>
-            <Button color='primary'>
-              Edit
-            </Button>
-          </Link>
-          <Button color='primary' onClick={() => props.removeFlower(flower.id)}>
-            Delete
-          </Button> */}
-          
         </Card>
       </Col>
     </Row>
@@ -41,4 +33,6 @@ function mapStateToProps(state, props) {
     flowers: state.flowers.all
   };
 }
-export default connect(mapStateToProps, { addToCart, removeFlower })(withRouter(FlowersList));
+export default connect(mapStateToProps, { addToCart, removeFlower })(
+  withRouter(FlowersList)
+);

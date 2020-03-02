@@ -16,14 +16,17 @@ const AddFlowerForm = props => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.addFlower({
-      in_cart,
-      name,
-      picture,
-      on_sale,
-      price,
-      rating
-    },props.history.push);
+    props.addFlower(
+      {
+        in_cart,
+        name,
+        picture,
+        on_sale,
+        price,
+        rating
+      },
+      props.history.push
+    );
   }
 
   return (
@@ -80,7 +83,9 @@ const AddFlowerForm = props => {
           value={rating}
         />
       </FormGroup>
-      <Button color="primary" type='submit'>Submit</Button>
+      <Button color='primary' type='submit'>
+        Submit
+      </Button>
     </Form>
   );
 };

@@ -38,7 +38,8 @@ export default (state = initialState, action) => {
         //take array from payload give all then the deleted one
         all: state.all.filter(flower => flower.id !== action.payload)
       };
-    case types.UPDATE_FLOWER_SUCCESS: //once changed look for one came back and change to the one that came back
+    case types.UPDATE_FLOWER_SUCCESS:
+    //once changed look for one came back and change to the one that came back
       return {
         ...state,
         all: state.all.map(flower => {
@@ -62,6 +63,17 @@ export default (state = initialState, action) => {
         all: state.all.map(flower => {
           if (flower.id === action.payload) {
             flower.in_cart = true;
+          }
+          return flower;
+        })
+      };
+    
+    case types.REMOVE_FROM_CART:
+      return {
+        ...state,
+        all: state.all.map(flower => {
+          if (flower.id === action.payload) {
+            flower.remove_from_cart = true;
           }
           return flower;
         })

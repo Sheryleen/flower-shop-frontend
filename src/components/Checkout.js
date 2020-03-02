@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Form, Button, FormControl } from "react-bootstrap";
+import { Navbar, Nav, Form, Button, FormControl, Modal } from "react-bootstrap";
 
 class Checkout extends React.Component {
   render() {
@@ -57,7 +57,11 @@ class Checkout extends React.Component {
           />
           <FormControl type='text' placeholder='csc' classCSC='mr-sm-2' />
         </Form>
-        <Button variant='outline-info'>Submit Order</Button>
+        <Button variant='outline-info' >Submit Order</Button>
+        <Modal.Body Order Has Been Submitted>
+          
+        </Modal.Body>
+
       </Navbar>
     );
   }

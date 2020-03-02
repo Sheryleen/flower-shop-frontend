@@ -6,10 +6,9 @@ import {
   CardText,
   CardImg,
   Row,
-  Col
+  Col,
+  Button
 } from "reactstrap";
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CartItem = props => {
   return (
@@ -24,12 +23,9 @@ const CartItem = props => {
             </CardBody>
           </Col>
           <Col>
-            <FontAwesomeIcon
-              className='Trash'
-              size='lg'
-              onClick={() => props.removeFlowerFromCart(props.item.id)}
-              icon={faTrashAlt}
-            />
+            <Button color='danger' onClick={() => props.removeFromCart}>
+              Delete
+            </Button>
           </Col>
         </Row>
       </Card>
