@@ -84,11 +84,10 @@ const EditFlowerForm = props => {
           value={rating}
         />
       </FormGroup>
-      {/* <Link to="/admin"> */}
+
       <Button color='primary' type='submit'>
         Submit
       </Button>
-      {/* </Link> */}
     </Form>
   );
 };

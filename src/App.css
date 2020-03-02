@@ -28,3 +28,25 @@
   float: right;
   width: 48%
 }
+
+.left{
+  z-index: 3;
+}
+.right{
+  position: relative;
+  z-index: 1;
+}
+.modal {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40;
+  border: 1px solid #ccc;
+  background: #fff;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+
+}
