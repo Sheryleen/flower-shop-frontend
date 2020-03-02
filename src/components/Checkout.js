@@ -12,7 +12,6 @@ const ModalCheckout = (props) => {
 
   const toggle = () => setModal(!modal);
 
-  class Checkout extends React.Component {
     
     render() {
       return (
@@ -85,7 +84,7 @@ const ModalCheckout = (props) => {
       );
     }
   }
-};
+
      
 
 
