@@ -75,7 +75,7 @@ export default (state = initialState, action) => {
           if (flower.id === action.payload) {
             flower.remove_from_cart = true;
           }
-          // return flower;
+          return flower;
         })
       };
 

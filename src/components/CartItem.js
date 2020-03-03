@@ -24,7 +24,7 @@ const CartItem = props => {
           </Col>
           <Col>
             <Button color='danger' onClick={() => props.removeFromCart}>
-              Delete
+              Remove
             </Button>
           </Col>
         </Row>

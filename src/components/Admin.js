@@ -7,7 +7,8 @@ import {
   Row,
   Col,
   CardImg,
-  ButtonGroup
+  ButtonGroup,
+  Form,
 } from "reactstrap";
 import { withRouter, Link } from "react-router-dom";
 //gives access to router props (history,match and location)
@@ -42,11 +43,12 @@ const Admin = props => {
           </Button>
         </Card>
       </Col>
-      <Link to={`/admin/add/`}>
-        <ButtonGroup size='md' className='mt-3'>
+      <Form>
+        <Link to={`/admin/add/`}>
           <Button color='secondary'>Add Flowers</Button>
-        </ButtonGroup>
-      </Link>
+          <ButtonGroup size='md' className='mt-3'></ButtonGroup>
+        </Link>
+      </Form>
     </Row>
   ));
 
