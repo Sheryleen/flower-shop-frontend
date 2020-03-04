@@ -20,7 +20,7 @@ class Login extends React.Component {
             Password
           </Form.Label>
           <Col sm='10'>
-            <Form.Control type='password' placeholder='Password' />
+            <Form.Control type='password' placeholder ='Password' />
           </Col>
         </Form.Group>
         <Link to={"/admin"}>
