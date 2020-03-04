@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   Card,
   CardBody,
@@ -9,6 +10,9 @@ import {
   Col,
   Button
 } from "reactstrap";
+import { removeFromCart } from "../store/flowers/actions";
+
+let id = " ";
 
 const CartItem = props => {
   return (
@@ -23,7 +27,10 @@ const CartItem = props => {
             </CardBody>
           </Col>
           <Col>
-            <Button color='danger' onClick={() => props.removeFromCart}>
+            <Button
+              color='danger'
+              onClick={() => props.removeFromCart(props.item.id)}
+            >
               Remove
             </Button>
           </Col>
@@ -32,4 +39,11 @@ const CartItem = props => {
     </div>
   );
 };
-export default CartItem;
+
+// function mapStateToProps(state, props) {
+//   return {
+//     flowers: state.flowers.all
+//   };
+// }
+
+export default connect(null, { removeFromCart })(CartItem);

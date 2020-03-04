@@ -21,7 +21,7 @@ const FlowerCart = props => {
     <CartItem
       key={item.id}
       item={item}
-      removeFlowerFromCart={props.removeFlowerFromCart}
+      // removeFlowerFromCart={props.removeFlowerFromCart}
     />
   ));
   //reduces the array to a single value

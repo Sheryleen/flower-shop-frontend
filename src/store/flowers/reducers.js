@@ -73,7 +73,7 @@ export default (state = initialState, action) => {
         ...state,
         all: state.all.map(flower => {
           if (flower.id === action.payload) {
-            flower.remove_from_cart = true;
+            flower.in_cart = false;
           }
           return flower;
         })

@@ -49,6 +49,13 @@ export const addToCart = id => dispatch => {
   });
 };
 
+export const removeFromCart = id => dispatch => {
+  dispatch({
+    type: types.REMOVE_FROM_CART,
+    payload: id
+  });
+};
+
 export const addFlower = (newFlower, push) => async dispatch => {
   dispatch({
     type: types.ADD_FLOWER_PENDING

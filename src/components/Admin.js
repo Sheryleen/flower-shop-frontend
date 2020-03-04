@@ -8,7 +8,7 @@ import {
   Col,
   CardImg,
   ButtonGroup,
-  Form,
+  CardBody
 } from "reactstrap";
 import { withRouter, Link } from "react-router-dom";
 //gives access to router props (history,match and location)
@@ -43,16 +43,20 @@ const Admin = props => {
           </Button>
         </Card>
       </Col>
-      <Form>
+    </Row>
+  ));
+
+  return (
+    <div style={{ display: "flex" }}>
+      <div>{listOfFlowers}</div>
+      <CardBody>
         <Link to={`/admin/add/`}>
           <Button color='secondary'>Add Flowers</Button>
           <ButtonGroup size='md' className='mt-3'></ButtonGroup>
         </Link>
-      </Form>
-    </Row>
-  ));
-
-  return <div>{listOfFlowers}</div>;
+      </CardBody>
+    </div>
+  );
 };
 function mapStateToProps(state, props) {
   return {

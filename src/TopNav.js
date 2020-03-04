@@ -36,10 +36,9 @@ class TopNav extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='ml-auto' navbar>
               <NavItem>
-                <NavLink href='/admin'>Admin</NavLink>
+                <NavLink href='/login'>Admin</NavLink>
               </NavItem>
-              <NavItem>
-              </NavItem>
+              <NavItem></NavItem>
             </Nav>
           </Collapse>
         </Navbar>
