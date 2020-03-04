@@ -12,7 +12,7 @@ const FlowersList = props => {
 
   let listOfFlowers = props.flowers.map(flower => (
     <Row>
-      <Col sm='6'>
+      <Col sm='4'>
         <Card body>
           <CardImg variant='top' src={flower.picture} />
           <CardTitle>

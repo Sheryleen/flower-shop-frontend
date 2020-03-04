@@ -40,10 +40,4 @@ const CartItem = props => {
   );
 };
 
-// function mapStateToProps(state, props) {
-//   return {
-//     flowers: state.flowers.all
-//   };
-// }
-
 export default connect(null, { removeFromCart })(CartItem);
