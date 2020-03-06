@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Button, Form, FormGroup, Label, Input, Col, Row } from "reactstrap";
 import { connect } from "react-redux";
 import { addFlower } from "../store/flowers/actions";
 

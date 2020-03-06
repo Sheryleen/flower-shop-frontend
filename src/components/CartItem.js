@@ -12,7 +12,9 @@ import {
 } from "reactstrap";
 import { removeFromCart } from "../store/flowers/actions";
 
+
 let id = " ";
+
 
 const CartItem = props => {
   return (

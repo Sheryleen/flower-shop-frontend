@@ -12,6 +12,7 @@ import EditFlowerForm from "./components/EditFlowerForm";
 import Admin from "./components/Admin";
 import Login from "./components/Login";
 
+
 //useEffect requires 2 arguments
 //1st argument should be a/k/a componentDidMount
 
@@ -26,7 +27,7 @@ function App(props) {
 
   return (
     <Router>
-      <div className='App'>
+      <div className='App background'   >
         <TopNav />
         <Container fluid>
           <Row>
