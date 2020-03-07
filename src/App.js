@@ -27,9 +27,9 @@ function App(props) {
 
   return (
     <Router>
-      <div className='App background'   >
-        <TopNav />
-        <Container fluid>
+      <div className='app-background'>
+        <TopNav/>
+        <Container fluid style={{ marginTop: 20 }}>
           <Row>
             <Col>
               <Switch>

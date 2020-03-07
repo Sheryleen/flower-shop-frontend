@@ -5,13 +5,14 @@
 
 .fontColor {
   color: white;
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
 }
 
 .sale {
   color: red;
-  font-size: 18px;
+  text-align: center;
+  font-size: 25px;
   font-weight: bold;
 }
 
@@ -20,15 +21,29 @@
   margin-left: 65px;
 }
 
-.Row {
-  display: flex;
-}
-
 .flower-cart {
   float: right;
   width: 48%;
 }
 
- /* .background {
+.card-size {
+  margin-top: 18px;
+  margin-bottom: 15px;
+  height: 400px;
+}
+.btn-spacing {
+  margin: 25px;
+  width: 50%;
+}
+ .text{
+   text-align: center;
+   font-size: 20px;
+   
+ }
+
+ /* .photo{
+   width: 400px;
+ }  */
+/* .background {
   background-color:;
 }  */

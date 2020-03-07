@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import {
   Button,
   Card,
@@ -20,26 +22,33 @@ let rating = " ";
 
 const FlowersList = props => {
   let listOfFlowers = props.flowers.map(flower => (
-    <Row>
-      <Col sm='4'>
-        <Card body className='background'>
-          <CardImg variant='top' src={flower.picture} />
-          <CardTitle>
-            {flower.name} ${flower.price}
-          </CardTitle>
-          <p className='sale'>{flower.on_sale && "Sale"}</p>
-          <CardText>
-            <ReactStars edit={false} count={5} value={flower.rating} />
-          </CardText>
-          <Button color='primary' onClick={() => props.addToCart(flower.id)}>
+    <Col sm='6'>
+      <Card body className='background' style={{ marginBottom: "15px" }}>
+        <CardImg className='card-size' variant='top' src={flower.picture} />
+        <CardTitle>
+          <p>{flower.name} </p>
+          <p>${flower.price}</p>
+        </CardTitle>
+        <p className='sale'>{flower.on_sale && "Sale"}</p>
+        <CardText>
+          <ReactStars edit={false} count={5} value={flower.rating} />
+        </CardText>
+        <Link>
+          <Button
+            size='sm'
+            color='primary'
+            onClick={() => props.addToCart(flower.id)}
+          >
             Add to Cart
           </Button>
-        </Card>
-      </Col>
-    </Row>
+        </Link>
+      </Card>
+    </Col>
   ));
 
-  return <div>{listOfFlowers}</div>;
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>{listOfFlowers}</div>
+  );
 };
 function mapStateToProps(state, props) {
   return {

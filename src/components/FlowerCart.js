@@ -39,16 +39,16 @@ const FlowerCart = props => {
     <div>
       <Container>
         <Row>
-          <Col className='cart md-6'>
+          <Col className='cart md-12'>
             <Card>
               <CardBody>
-                <CardTitle>Your Cart</CardTitle>
+                <CardTitle className='text'>Cart</CardTitle>
                 <CardText>{cartItemComponents}</CardText>
                 <CardSubtitle>Subtotal: ${totalPrice.toFixed(2)}</CardSubtitle>
                 <CardText>Tax: ${taxTotal.toFixed(2)}</CardText>
                 <CardText>Total: ${grandTotal.toFixed(2)}</CardText>
                 <Link to='/checkout'>
-                  <Button color='danger' size='lg'>
+                  <Button color='danger' size='sm'>
                     Checkout
                   </Button>
                 </Link>
