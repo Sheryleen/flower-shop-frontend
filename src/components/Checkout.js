@@ -57,17 +57,17 @@ const ModalCheckout = props => {
         <FormControl type='text' placeholder='csc' classCSC='mr-sm-2' />
       </Form>
 
-      <Button color='primary' size='lg' onClick={toggle}>
-        Click to Order
+      <Button color='primary' size='sm' onClick={toggle}>
+        Place Order
       </Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Thank you</ModalHeader>
         <ModalBody>Your Order Has Been Received</ModalBody>
         <ModalFooter>
-          <Link to={'/'}>
-          <Button color='secondary' onClick={toggle}>
-            Close
-          </Button>
+          <Link to={"/"}>
+            <Button color='secondary' onClick={toggle}>
+              Close
+            </Button>
           </Link>
         </ModalFooter>
       </Modal>

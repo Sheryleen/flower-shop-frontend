@@ -8,7 +8,7 @@ import {
   Col,
   CardImg,
   Container,
-  ButtonGroup,
+  ButtonGroup
 } from "reactstrap";
 import { withRouter, Link } from "react-router-dom";
 //gives access to router props (history,match and location)
@@ -33,6 +33,7 @@ const Admin = props => {
           </Link>
           <Link>
             <Button
+              className='btn-spacing'
               color='danger'
               size='sm'
               onClick={() => props.removeFlower(flower.id)}
