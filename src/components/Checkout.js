@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { FormControl, Navbar, Nav, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { removeAllFromCart } from "../store/flowers/actions";
 
 const ModalCheckout = props => {
   const { buttonLabel, className } = props;
@@ -9,6 +11,13 @@ const ModalCheckout = props => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+
+  function handleClose() {
+    //remove items from cart after order is submitted
+    //redirect back to main page
+    props.removeAllFromCart()
+    props.history.push("/")
+  }
 
   return (
     <Navbar bg='light' variant='light'>
@@ -64,15 +73,13 @@ const ModalCheckout = props => {
         <ModalHeader toggle={toggle}>Thank you</ModalHeader>
         <ModalBody>Your Order Has Been Received</ModalBody>
         <ModalFooter>
-          <Link to={"/"}>
-            <Button color='secondary' onClick={toggle}>
-              Close
-            </Button>
-          </Link>
+          <Button color='secondary' onClick={handleClose}>
+            Close
+          </Button>
         </ModalFooter>
       </Modal>
     </Navbar>
   );
 };
 
-export default ModalCheckout;
+export default connect(null, { removeAllFromCart })(ModalCheckout);

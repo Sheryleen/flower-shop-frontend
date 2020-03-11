@@ -56,6 +56,12 @@ export const removeFromCart = id => dispatch => {
   });
 };
 
+export const removeAllFromCart = id => dispatch => {
+  dispatch({
+    type: types.REMOVE_ALL_FROM_CART,
+    payload: id
+  });
+};
 export const addFlower = (newFlower, push) => async dispatch => {
   dispatch({
     type: types.ADD_FLOWER_PENDING

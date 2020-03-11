@@ -34,7 +34,8 @@ const FlowersList = props => {
           <ReactStars edit={false} count={5} value={flower.rating} />
         </CardText>
         <Link>
-          <Button className="btn-bottom"
+          <Button
+            className='btn-bottom'
             size='sm'
             color='primary'
             onClick={() => props.addToCart(flower.id)}

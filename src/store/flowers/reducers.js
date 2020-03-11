@@ -39,7 +39,7 @@ export default (state = initialState, action) => {
         all: state.all.filter(flower => flower.id !== action.payload)
       };
     case types.UPDATE_FLOWER_SUCCESS:
-    //once changed look for one came back and change to the one that came back
+      //once changed look for one came back and change to the one that came back
       return {
         ...state,
         all: state.all.map(flower => {
@@ -67,7 +67,7 @@ export default (state = initialState, action) => {
           return flower;
         })
       };
-    
+
     case types.REMOVE_FROM_CART:
       return {
         ...state,
@@ -75,6 +75,15 @@ export default (state = initialState, action) => {
           if (flower.id === action.payload) {
             flower.in_cart = false;
           }
+          return flower;
+        })
+      };
+
+    case types.REMOVE_ALL_FROM_CART:
+      return {
+        ...state,
+        all: state.all.map(flower => {
+          flower.in_cart = false;
           return flower;
         })
       };
